@@ -1,20 +1,26 @@
 {
-	"configurations": [
-		{
-			"name": "ObstacleAssaultEditor Editor Win64 Development (ObstacleAssault)",
-			"compilerPath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.41.34120\\bin\\Hostx64\\x64\\cl.exe",
-			"cStandard": "c17",
-			"cppStandard": "c++20",
-			"intelliSenseMode": "msvc-x64",
-			"compileCommands": "D:\\Unreal\\ObstacleAssault\\ObstacleAssault\\.vscode\\compileCommands_ObstacleAssault.json"
-		},
-		{
-			"name": "Win32",
-			"compilerPath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.41.34120\\bin\\Hostx64\\x64\\cl.exe",
-			"cStandard": "c17",
-			"cppStandard": "c++20",
-			"intelliSenseMode": "msvc-x64",
-			"compileCommands": "D:\\Unreal\\ObstacleAssault\\ObstacleAssault\\.vscode\\compileCommands_Default.json"
-		}
-	]
+    "configurations": [
+        {
+            "name": "ObstacleAssaultEditor Editor Win64 Development (ObstacleAssault)",
+            "compilerPath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.41.34120\\bin\\Hostx64\\x64\\cl.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "msvc-x64",
+            "includePath": [
+                "${workspaceFolder}\\Intermediate\\**",
+                "${workspaceFolder}\\Plugins\\**",
+                "${workspaceFolder}\\Source\\**"
+            ],
+            "compileCommands": "D:\\Unreal\\ObstacleAssault\\ObstacleAssault\\.vscode\\compileCommands_ObstacleAssault.json"
+        },
+        {
+            "name": "Win32",
+            "compilerPath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.41.34120\\bin\\Hostx64\\x64\\cl.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "msvc-x64",
+            "compileCommands": "D:\\Unreal\\ObstacleAssault\\ObstacleAssault\\.vscode\\compileCommands_Default.json"
+        }
+    ],
+    "version": 4
 }

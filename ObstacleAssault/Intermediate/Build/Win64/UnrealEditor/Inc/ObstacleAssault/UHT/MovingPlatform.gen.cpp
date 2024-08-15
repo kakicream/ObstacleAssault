@@ -10,6 +10,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMovingPlatform() {}
 
 // Begin Cross Module References
+COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 ENGINE_API UClass* Z_Construct_UClass_AActor();
 OBSTACLEASSAULT_API UClass* Z_Construct_UClass_AMovingPlatform();
 OBSTACLEASSAULT_API UClass* Z_Construct_UClass_AMovingPlatform_NoRegister();
@@ -32,18 +33,23 @@ struct Z_Construct_UClass_AMovingPlatform_Statics
 		{ "IncludePath", "MovingPlatform.h" },
 		{ "ModuleRelativePath", "MovingPlatform.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_myInt_MetaData[] = {
-		{ "Category", "MovingPlatform" },
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_platformVelocity_MetaData[] = {
+		{ "Category", "Moving Platform" },
 		{ "ModuleRelativePath", "MovingPlatform.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_myBool_MetaData[] = {
-		{ "Category", "MovingPlatform" },
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_moveDistance_MetaData[] = {
+		{ "Category", "Moving Platform" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// 1unit = 1cm -> 100unit = 100cm = 1m\n" },
+#endif
 		{ "ModuleRelativePath", "MovingPlatform.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "1unit = 1cm -> 100unit = 100cm = 1m" },
+#endif
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FIntPropertyParams NewProp_myInt;
-	static void NewProp_myBool_SetBit(void* Obj);
-	static const UECodeGen_Private::FBoolPropertyParams NewProp_myBool;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_platformVelocity;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_moveDistance;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -51,15 +57,11 @@ struct Z_Construct_UClass_AMovingPlatform_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
-const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AMovingPlatform_Statics::NewProp_myInt = { "myInt", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMovingPlatform, myInt), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_myInt_MetaData), NewProp_myInt_MetaData) };
-void Z_Construct_UClass_AMovingPlatform_Statics::NewProp_myBool_SetBit(void* Obj)
-{
-	((AMovingPlatform*)Obj)->myBool = 1;
-}
-const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AMovingPlatform_Statics::NewProp_myBool = { "myBool", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AMovingPlatform), &Z_Construct_UClass_AMovingPlatform_Statics::NewProp_myBool_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_myBool_MetaData), NewProp_myBool_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AMovingPlatform_Statics::NewProp_platformVelocity = { "platformVelocity", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMovingPlatform, platformVelocity), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_platformVelocity_MetaData), NewProp_platformVelocity_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMovingPlatform_Statics::NewProp_moveDistance = { "moveDistance", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMovingPlatform, moveDistance), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_moveDistance_MetaData), NewProp_moveDistance_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMovingPlatform_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMovingPlatform_Statics::NewProp_myInt,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMovingPlatform_Statics::NewProp_myBool,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMovingPlatform_Statics::NewProp_platformVelocity,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMovingPlatform_Statics::NewProp_moveDistance,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMovingPlatform_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AMovingPlatform_Statics::DependentSingletons[])() = {
@@ -102,10 +104,10 @@ AMovingPlatform::~AMovingPlatform() {}
 struct Z_CompiledInDeferFile_FID_Unreal_ObstacleAssault_ObstacleAssault_Source_ObstacleAssault_MovingPlatform_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AMovingPlatform, AMovingPlatform::StaticClass, TEXT("AMovingPlatform"), &Z_Registration_Info_UClass_AMovingPlatform, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMovingPlatform), 4002733552U) },
+		{ Z_Construct_UClass_AMovingPlatform, AMovingPlatform::StaticClass, TEXT("AMovingPlatform"), &Z_Registration_Info_UClass_AMovingPlatform, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMovingPlatform), 4020715876U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_ObstacleAssault_ObstacleAssault_Source_ObstacleAssault_MovingPlatform_h_500831363(TEXT("/Script/ObstacleAssault"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_ObstacleAssault_ObstacleAssault_Source_ObstacleAssault_MovingPlatform_h_306521114(TEXT("/Script/ObstacleAssault"),
 	Z_CompiledInDeferFile_FID_Unreal_ObstacleAssault_ObstacleAssault_Source_ObstacleAssault_MovingPlatform_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_ObstacleAssault_ObstacleAssault_Source_ObstacleAssault_MovingPlatform_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
