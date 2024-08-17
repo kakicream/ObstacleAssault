@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ObstacleAssaultModuleRules")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b338c33d65eaa2dfe178a67e05676d6de36d85a2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56f14432cfa61c78ace839faa30b2f74f45acc3a")]
 [assembly: System.Reflection.AssemblyProductAttribute("ObstacleAssaultModuleRules")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ObstacleAssaultModuleRules")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
