@@ -30,24 +30,41 @@ void AMovingPlatform::Tick(float DeltaTime) // Update
 
 void AMovingPlatform::MovePlatform(float DeltaTime)
 {
-	FVector currentLocation = GetActorLocation();
-	currentLocation += platformVelocity * DeltaTime;
-	SetActorLocation(currentLocation);
-
-	float distanceMoved = FVector::Dist(startLocation, currentLocation);
-	if (distanceMoved > moveDistance)
+	if (ShouldPlatformReturn())
 	{
-		float overShoot = distanceMoved - moveDistance;
-		FString myTestName = GetName();
-		UE_LOG(LogTemp, Display, TEXT("MyTest : %f by %s"), overShoot, *myTestName);
 		FVector moveDirection = platformVelocity.GetSafeNormal();
 		startLocation = startLocation + moveDirection * moveDistance;
 		SetActorLocation(startLocation);
 		platformVelocity = -platformVelocity;
 	}
+	else
+	{
+		FVector currentLocation = GetActorLocation();
+		currentLocation += platformVelocity * DeltaTime;
+		SetActorLocation(currentLocation);
+	}
 }
 
 void AMovingPlatform::RotatePlatform(float DeltaTime)
 {
-UE_LOG(LogTemp, Display, TEXT("Rotating"));
+	// FRotator currentRotation = GetActorRotation();
+	// currentRotation += ;
+	// SetActorRotation(CurrentRotation);
+	AddActorLocalRotation(rotationVelocity * DeltaTime);
+}
+
+// const keyword REQUIRED!
+bool AMovingPlatform::ShouldPlatformReturn() const
+{
+	// moveDistance = 100 :
+	// No being able to modify due to const
+	// GetActorLocation();
+	// Also impossible
+	// How can we use GetDistanceMoved?
+	return GetDistanceMoved() > moveDistance;
+}
+
+float AMovingPlatform::GetDistanceMoved() const
+{
+	return FVector::Dist(startLocation, GetActorLocation());
 }

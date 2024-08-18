@@ -24,13 +24,20 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 private:
-	UPROPERTY(EditAnywhere, Category = "Moving Platform")
+	UPROPERTY(EditAnywhere, Category = "Moving")
 	FVector platformVelocity = FVector(100, 0, 0); // 1unit = 1cm -> 100unit = 100cm = 1m
-	UPROPERTY(EditAnywhere, Category = "Moving Platform")
+	UPROPERTY(EditAnywhere, Category = "Moving")
 	float moveDistance = 1000.0f;
+	UPROPERTY(EditAnywhere, Category = "Rotation")
+	FRotator rotationVelocity;
 
 	FVector startLocation;
 
 	void MovePlatform(float DeltaTime);
 	void RotatePlatform(float DeltaTime);
+
+// Function const means : that function cannot be modify the state of your class
+// Forced by the rule of the compiler
+	bool ShouldPlatformReturn() const;
+	float GetDistanceMoved() const;
 };
